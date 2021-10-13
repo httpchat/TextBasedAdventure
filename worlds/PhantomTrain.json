@@ -1,0 +1,361 @@
+{
+  "author": "Heitor Chang",
+  "items": [
+    {
+      "id": "1",
+      "name": "Key J",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A bronze key."
+        },
+        {
+          "command": "TAKE"
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "2",
+      "name": "Key K",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A gold key."
+        },
+        {
+          "command": "TAKE"
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "3",
+      "name": "Key Q",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A silver key."
+        },
+        {
+          "command": "TAKE"
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "4",
+      "name": "Machinist's Manual",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A large, heavy, worn-out book."
+        },
+        {
+          "command": "READ",
+          "text": "The gold key will lead to treasure, while bronze and silver open the way."
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "5",
+      "name": "J Opening",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A keyhole with a J symbol."
+        },
+        {
+          "command": "USE",
+          "acceptedItem": [
+            {
+              "itemId": "1",
+              "text": "You place the J key into the keyhole",
+              "effectIds": ["1"]
+            }
+          ]
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "6",
+      "name": "K Opening",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A keyhole with a K symbol."
+        },
+        {
+          "command": "USE",
+          "acceptedItem": [
+            {
+              "itemId": "2",
+              "text": "You place the K key into the keyhole",
+              "effectIds": ["2"]
+            }
+          ]
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "7",
+      "name": "Q Opening",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A keyhole with a Q symbol."
+        },
+        {
+          "command": "USE",
+          "acceptedItem": [
+            {
+              "itemId": "3",
+              "text": "You place the Q key into the keyhole",
+              "effectIds": ["3"]
+            }
+          ]
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "8",
+      "name": "Phoenix Down",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "Feathers from a mystical bird."
+        },
+        {
+          "command": "TAKE"
+        }
+      ],
+      "visible": true
+    },
+    {
+      "id": "9",
+      "name": "Phantom Engine",
+      "commands": [
+        {
+          "command": "LOOK",
+          "text": "A terrifying ghoul who cannot be defeated with plain weaponry."
+        },
+        {
+          "command": "USE",
+          "acceptedItem": [
+            {
+              "itemId": "8",
+              "text": "You drop the Phoenix Down on the Phantom Engine. There is a bright flash of light and the latch behind it clicks!",
+              "effectIds": ["4"]
+            }
+          ]
+        }
+      ],
+      "visible": true
+    }
+  ],
+  "effects": [
+    {
+      "id" : "1",
+      "type": "UNLOCK_DOOR",
+      "doorIds" : ["6"],
+      "text": "You hear a click to the southwest."
+    },
+    {
+      "id" : "2",
+      "type": "UNLOCK_DOOR",
+      "doorIds" : ["5"],
+      "text": "You hear a click to the east."
+    },
+    {
+      "id" : "3",
+      "type": "UNLOCK_DOOR",
+      "doorIds" : ["7"],
+      "text": "You hear a faint click to the southwest."
+    },
+    {
+      "id" : "4",
+      "type": "UNLOCK_DOOR",
+      "doorIds" : ["8"],
+      "text": "You hear a click behind the engine."
+    }
+  ],
+  "doors": [
+    {
+      "id" : "1",
+      "locked" : false 
+    },
+    {
+      "id" : "2",
+      "locked" : false 
+    },
+    {
+      "id" : "3",
+      "locked" : false 
+    },
+    {
+      "id" : "4",
+      "locked" : false 
+    },
+    {
+      "id" : "5",
+      "locked" : true 
+    },
+    {
+      "id" : "6",
+      "locked" : true 
+    },
+    {
+      "id" : "7",
+      "locked" : true 
+    },
+    {
+      "id" : "8",
+      "locked" : true  
+    }
+  ],
+  "rooms": [
+    {
+      "id": "1",
+      "text" : "A car in the Phantom Train.",
+      "itemIds" : [],
+      "doors" : [
+        {
+          "doorId": "1",
+          "direction": "WEST",
+          "connectedRoomId": "2"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "text" : "A messy car.",
+      "itemIds" : ["1", "4"],
+      "doors" : [
+        {
+          "doorId": "1",
+          "direction": "EAST",
+          "connectedRoomId": "1"
+        },
+        {
+          "doorId": "2",
+          "direction": "WEST",
+          "connectedRoomId": "4"
+        },
+        {
+          "doorId": "3",
+          "direction": "SOUTH",
+          "connectedRoomId": "3"
+        }               
+      ]
+    },
+    {
+      "id": "3",
+      "text" : "A tiny storage area.",
+      "itemIds" : ["3"],
+      "doors" : [
+        {
+          "doorId": "3",
+          "direction": "NORTH",
+          "connectedRoomId": "2"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "text" : "An empty car.",
+      "itemIds" : [],
+      "doors" : [
+        {
+          "doorId": "4",
+          "direction": "NORTH",
+          "connectedRoomId": "5"
+        },
+        {
+          "doorId": "6",
+          "direction": "WEST",
+          "connectedRoomId": "7"
+        },
+        {
+          "doorId": "2",
+          "direction": "EAST",
+          "connectedRoomId": "2"
+        } 
+      ]
+    },
+    {
+      "id": "5",
+      "text" : "A control room.",
+      "itemIds" : ["5", "6", "7"],
+      "doors" : [
+        {
+          "doorId": "4",
+          "direction": "SOUTH",
+          "connectedRoomId": "4"
+        },
+        {
+          "doorId": "5",
+          "direction": "EAST",
+          "connectedRoomId": "6"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "text" : "A brightly lit compartment.",
+      "itemIds" : ["8"],
+      "doors" : [
+        {
+          "doorId": "5",
+          "direction": "WEST",
+          "connectedRoomId": "5"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "text" : "An empty car.",
+      "itemIds" : [],
+      "doors" : [
+        {
+          "doorId": "7",
+          "direction": "WEST",
+          "connectedRoomId": "8"
+        },
+        {
+          "doorId": "6",
+          "direction": "EAST",
+          "connectedRoomId": "4"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "text" : "The engine room.",
+      "itemIds" : ["2", "9"],
+      "doors" : [
+        {
+          "doorId": "8",
+          "direction": "WEST",
+          "connectedRoomId": "9"
+        },
+        {
+          "doorId": "7",
+          "direction": "EAST",
+          "connectedRoomId": "7"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "text" : "You have alighted from the Phantom Train!",
+      "itemIds" : [],
+      "doors" : []
+    }
+  ],
+  "startingRoomId": "1",
+  "endingRoomId": "9"
+}
